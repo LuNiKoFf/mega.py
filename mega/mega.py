@@ -369,8 +369,8 @@ class Mega(object):
             unit_coef = 1073741824
         json_resp = self._api_request({'a': 'uq', 'xfer': 1, 'strg': 1})
         return {
-            'used': json_resp['cstrg'] / unit_coef,
-            'total': json_resp['mstrg'] / unit_coef,
+            'used': int(json_resp['cstrg']) / unit_coef,
+            'total': int(json_resp['mstrg']) / unit_coef,
         }
 
     def get_balance(self):
